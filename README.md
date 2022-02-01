@@ -6,7 +6,7 @@
 **Talking about this project:**
 
 <!-- Any image aligned to the right. Beware the width -->
-<img width="25%" align="right" alt="Github" src="https://image.freepik.com/free-vector/online-assistant-user-help-frequently-asked-questions-call-center-worker-cartoon-character-woman-working-hotline_335657-2336.jpg?w=740">
+<img width="30%" align="right" alt="Github" src="https://image.freepik.com/free-vector/online-assistant-user-help-frequently-asked-questions-call-center-worker-cartoon-character-woman-working-hotline_335657-2336.jpg?w=740">
 
 - ⚡️ An A.I Desktop Assistant for makinig things easy;
 - ⚡️ Developed using Python3;
