@@ -1,14 +1,17 @@
 import audioop
 import datetime
+from importlib.resources import path
+from logging import exception
 import pyttsx3
 import speech_recognition as sr
 import wikipedia
 import webbrowser
 import os
+import smtplib
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
-engine.setProperty('voice',voices[1].id)
+engine.setProperty('voice',voices[0].id)
 
 def speak(audio):
     engine.say(audio)
@@ -40,6 +43,13 @@ def takeCommand():
         return "None"
     return query
 
+def sendemail(to,content):
+    server = smtplib.SMTP('smtp.gmail.com',587)
+    server.ehlo()
+    server.starttls()
+    server.login('rohit7406524@gmail.com','rohit@gmail23')
+    server.sendmail('rohit7406524@gmail.com',to,content)
+    server.close()
 
 if __name__ == "__main__":
     wishMe()
@@ -77,4 +87,19 @@ if __name__ == "__main__":
         elif 'open leetcode' in query:
             print("Opening Leetcode...")
             webbrowser.open("https://leetcode.com/")
-        
+        elif "vs code" in query:
+            codepath = "C:\\Users\\rohit\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
+            os.startfile(codepath)
+        elif "email to rohit" in query: 
+            try:
+                speak("What should I say?")
+                content = takeCommand()
+                to = "rohit7406524@gmail.com"
+                sendemail(to,content)
+                speak("Email has been sent!")
+            except exception as e:
+                print(e)
+                speak("Not able to send email")
+        elif "exit" in query:
+            speak("Goodbye sir")
+            exit()
