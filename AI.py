@@ -1,6 +1,5 @@
 import audioop
 import datetime
-from importlib.resources import path
 from logging import exception
 import pyttsx3
 import speech_recognition as sr
